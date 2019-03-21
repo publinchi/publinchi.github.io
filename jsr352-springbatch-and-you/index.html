@@ -46,7 +46,7 @@
 					<p>
 						<small>Refactored by Publio Estupiñán / publinchi@gmail.com</small> 
 						<br/>
-						<small>Created by <a href="http://springframework.io/team/mminella">Michael T Minella</a> / <a href="http://twitter.com/michaelminella">@michaelminella</a></small>
+						<small>Based on <a href="http://springframework.io/team/mminella">Michael T Minella</a> / <a href="http://twitter.com/michaelminella">@michaelminella</a></small>
 					</p>
 				</section>
                 <!--
@@ -144,7 +144,11 @@
 				</section>
 
 				<section>
-					<!--<div style="column-count:2;">--><img src="./img/spec.png"/><img src="./img/documentation.png"/><!--</div>-->
+					<div style="column-count:1;"><img src="./img/spec.png" width="40%"/></div>
+				</section>
+
+				<section>
+					<div style="column-count:1;"><img src="./img/documentation.png" width="60%"/></div>
 				</section>
 
 				<section>
@@ -154,14 +158,14 @@
 				<section>
 					<h1>3</h1>
 					<ul>
-						<li class="fragment">API for building batch components</li>
-						<li class="fragment">A DSL for configuring batch components</li>
-						<li class="fragment">A contract of how batch components interact</li>
+						<li class="fragment">API para construir componentes batch</li>
+						<li class="fragment">DSL para configurar componentes batch</li>
+						<li class="fragment">Un contrato de cómo interactúan los componentes batch</li>
 					</ul>
 				</section>
 
 				<section>
-					<h1>High level differences</h1>
+					<h1>Diferencias de alto nivel</h1>
 				</section>
 
 				<section data-transition="fade">
@@ -230,18 +234,18 @@
 				</section>
 
 				<section>
-					<h1>Dependency Injection</h1>
+					<h1>Inyección de Dependencia</h1>
 					<ul>
-						<li class="fragment">Foundational technology of Spring Batch</li>
-						<li class="fragment">Not required with JSR-352</li> 
+						<li class="fragment">Tecnologia fundacional de Spring Batch</li>
+						<li class="fragment">No se requiere con JSR-352</li> 
 					</ul>
 					<aside class="notes">
-						Not required meaning no JSR-299 or JSR-330 etc implementation is required
+						No se requiere quiere decir que ninguna implementación JSR-299 o JSR-330 etc es requerida
 					</aside>
 				</section>
 
 				<section>
-					<h1>References in JSR-352</h1>
+					<h1>Referencias en JSR-352</h1>
 					<pre><code data-trim contenteditable>
 &lt;job id="personJob"&gt;
     &lt;step id="step1"&gt;
@@ -256,11 +260,11 @@
 				</section>
 
 				<section>
-					<h1>References point to 1 of 3 places</h1>
+					<h1>Referencias en Spring Batch</h1>
 					<ul>
 						<li class="fragment">Spring bean</li>
-						<li class="fragment">batch.xml definition</li>
-						<li class="fragment">The class itself</li>
+						<li class="fragment">Definición en batch.xml</li>
+						<li class="fragment">La clase en si</li>
 					</ul>
 				</section>
 
@@ -289,7 +293,7 @@
 				</section>
 
 				<section>
-					<h1>The class itself</h1>
+					<h1>La clase en si</h1>
 					<pre><code data-trim contenteditable>
 &lt;job id="personJob"&gt;
     &lt;step id="step1"&gt;
@@ -304,11 +308,11 @@
 				</section>
 
 				<section>
-					<h1>Properties</h1>
+					<h1>Propiedades</h1>
 					<ul>
-						<li class="fragment">Spring injects them on bean definitions</li>
-						<li class="fragment">JSR-352 injects properties from the job definition</li>
-						<li class="fragment">JSR-352 properties are Strings only</li>
+						<li class="fragment">Spring las inyecta en las definiciones del bean</li>
+						<li class="fragment">JSR-352 inyecta las propiedades desde la definición del job</li>
+						<li class="fragment">Las propiedades de JSR-352 solo son del tipo String</li>
 					</ul>
 				</section>
 
@@ -326,7 +330,7 @@
 &lt;/job&gt;
 					</code></pre>
 					<aside class="notes">
-						Assume both fileReader and xmlWriter need file names to be injected
+						Supongamos que tanto fileReader como xmlWriter necesitan nombres de archivo para ser inyectados
 					</aside>
 				</section>
 
@@ -351,12 +355,12 @@
 &lt;/job&gt;
 					</code></pre>
 					<aside class="notes">
-						All JSR-352 properties are Strings
+						Todas las propiedades de JSR-352 son Strings
 					</aside>
 				</section>
 
 				<section>
-					<h1>Injection of properties</h1>
+					<h1>Inyección de propiedades</h1>
 					<pre><code data-trim contenteditable class="java">
 @Inject
 @BatchProperty
@@ -367,7 +371,7 @@ public String fileName;
 public String otherProperty;
 					</code></pre>
 					<aside class="notes">
-						All JSR-352 properties are Strings
+						Todas las propiedades de JSR-352 son Strings
 					</aside>
 				</section>
 
@@ -376,7 +380,7 @@ public String otherProperty;
 				</section>
 
 				<section>
-					<h1>Let's build an app!</h1>
+					<h1>Construyamos una aplicación!</h1>
 				</section>
 
 				<section>
@@ -387,38 +391,38 @@ public String otherProperty;
 					</video>
 					<aside class="notes">
 						<ul>
-							<li>Released in 2003</li>
-							<li>Year MySpace was founded</li>
-							<li>Zuckerberg would start coding Facebook the next year</li>
-							<li>2 years before YouTube existed</li>
+							<li>Liberado en 2003</li>
+							<li>Ese año MySpace fue fundado</li>
+							<li>Zuckerberg empezaría a programar Facebook el siguiente año</li>
+							<li>2 años antes que Youtube existiera</li>
 						</ul>
 					</aside>
 				</section>
 
 				<section>
-					<h1>Logs of a viral video</h1>
+					<h1>Logs de un video viral</h1>
 					<ul>
-						<li class="fragment">Released in 2003.</li>
-						<li class="fragment">Downloaded 1.1 million times the first 2 weeks</li>
-						<li class="fragment">Since been downloaded 40 million times since it was moved to YouTube</li>
-						<li class="fragment">2008, Andy Baio posted the Apache logs for the first 6 months</li>
-						<li class="fragment">File is 1.6 GB unzipped and available via BitTorent</li>
-						<li class="fragment">File was originally called "ghyslain_razaa.wmv"</li>
-						<li class="fragment">File was later renamed to "Star_Wars_Kid.wmv"</li>
+						<li class="fragment">Liberado in 2003.</li>
+						<li class="fragment">Descargado 1.1 millones de veces las primeras 2 semanas</li>
+						<li class="fragment">Desde que fue movido a YouTube fue descargado 40 millones de veces</li>
+						<li class="fragment">En 2008, Andy Baio publicó los logs de apache de las primeras 6 semanas</li>
+						<li class="fragment">El archivo pesa 1.6 GB descomprimido y está disponible vía BitTorent</li>
+						<li class="fragment">El archivo fue originalmente llamado "ghyslain_razaa.wmv"</li>
+						<li class="fragment">El archivo luego fue renombrado "Star_Wars_Kid.wmv"</li>
 					</ul>
 				</section>
 
 				<section>
-					<h1>Who was watching this video?</h1>
+					<h1>Quién estuvo viendo este video?</h1>
 				</section>
 
 				<section>
-					<h1>Our Job</h1>
+					<h1>Nuestro Job</h1>
 					<img src="./img/logAnalysis.png"/>
 				</section>
 
 				<section>
-					<h1>Step Processing Models</h1>
+					<h1>Modelos de Procesamiento de Step</h1>
 				</section>
 
 				<section>
@@ -450,11 +454,11 @@ public interface Batchlet {
 				</section>
 
 				<section>
-					<h1>Step 1...split the file</h1>
+					<h1>Step 1...dividir el archivo</h1>
 				</section>
 
 				<section>
-					<h1>Launching</h1>
+					<h1>Lanzamiento</h1>
 				</section>
 
 				<section>
@@ -472,12 +476,12 @@ long newJobExecutionId = jobOperator.restart(jobExecutionId, new Properties());
 jobOperator.stop(jobExecutionid);
 					</code></pre>
 					<aside class="notes">
-						A cross between Spring Batch's JobOperator and JobExplorer
+						Un cruce entre JobOperator de Spring Batch y JobExplore
 					</aside>
 				</section>
 
 				<section>
-					<h1>Chunk processing</h1>
+					<h1>Procesamiento Chunk</h1>
 				</section>
 
 				<section>
@@ -486,7 +490,7 @@ jobOperator.stop(jobExecutionid);
 				</section>
 
 				<section>
-					<h1>Spring Batch Really</h1>
+					<h1>Spring Batch Realmente</h1>
 					<img src="./img/realSequence.png"/>
 				</section>
 
@@ -496,7 +500,7 @@ jobOperator.stop(jobExecutionid);
 				</section>
 
 				<section>
-					<h1>Chunk Related Interfaces</h1>
+					<h1>Interfaces relacionadas Chunk</h1>
 					<ul>
 						<li class="fragment">ItemReader</li>
 						<li class="fragment">ItemProcessor</li>
@@ -511,17 +515,17 @@ jobOperator.stop(jobExecutionid);
 						<li class="fragment">Custom</li>
 					</ul>
 					<aside class="notes">
-						Equivalent to Spring Batch's CompletionPolicy
-						There is also a timeout component to checkpoints
+						Equivalente a CompletionPolicy de Spring Batch
+						Hay también un componente de timeout para checkpoints
 					</aside>
 				</section>
 
 				<section>
-					<h1>Step 2...import the file</h1>
+					<h1>Step 2...importar el archivo</h1>
 				</section>
 
 				<section>
-					<h1>Error handling</h1>
+					<h1>Manejo de errores</h1>
 				</section>
 
 				<section>
@@ -565,12 +569,12 @@ jobOperator.stop(jobExecutionid);
 				<section>
 					<h1>Read Retries</h1>
 					<ul>
-						<li class="fragment">Spring Batch hasn't supported read retries</li>
-						<li class="fragment">JSR-352 allows read retries</li>
-						<li class="fragment">Existing Spring Batch readers won't support read retry with 3.0</li>
+						<li class="fragment">Spring Batch no ha soportado read retries</li>
+						<li class="fragment">JSR-352 permite read retries</li>
+						<li class="fragment">Readers existentes en Spring Batch no soportaran read retry con 3.0</li>
 					</ul>
 					<aside class="notes">
-						Most Spring Batch readers are forward moving stateful readers.  They will not support retry.
+						La mayoría de los readers de Spring Batch son readers stateful que avanzan. No soportarán retry.
 					</aside>
 				</section>
 
@@ -580,71 +584,71 @@ jobOperator.stop(jobExecutionid);
 
 				<section>
 					<h1>Splits</h1>
-					<p>Same as Spring Batch</p>
+					<p>Igual que Spring Batch</p>
 				</section>
 
 				<section>
 					<h1>Partitioning</h1>
 					<ul>
-						<li class="fragment">Executes chunks or multiple instances of Batchlets in parallel</li>
-						<li class="fragment">Two configuration options
+						<li class="fragment">Ejecuta chunks o múltiple instancias de Batchlets en paralelo</li>
+						<li class="fragment">Dos opciones de configuracion
 							<ul>
-								<li>Hardcoded in XML</li>
+								<li>Hardcoded en XML</li>
 								<li>PartitionMapper</li>
 							</ul>
 						</li>
-						<li class="fragment">Adds two additional concepts...</li>
+						<li class="fragment">Agrega dos conceptos adicionales...</li>
 				</section>
 
 				<section>
 					<h1>Partition Reducer</h1>
 					<ul>
-						<li class="fragment">Provides a hook for compensating logic upon failure</li>
-						<li class="fragment">Really just a specialized StepListener/StepExecutionListenr</li>
+						<li class="fragment">Proporciona un hook para compensar la lógica en caso de fallo.</li>
+						<li class="fragment">Realmente solo un StepListener / StepExecutionListener especializado</li>
 					</ul>
 				</section>
 
 				<section>
 					<h1>Partition Collector/<br/>Analyzer</h1>
 					<ul>
-						<li class="fragment">Collector collects data from batch artifacts</li>
-						<li class="fragment">Analyzer allows the ability to set ExitStatus after a partitioned step</li>
+						<li class="fragment">El Collector recopila datos de los artefactos batch</li>
+						<li class="fragment">El Analyzer permite configurar ExitStatus después de un partitioned step</li>
 					</ul>
 					<aside class="notes">
-						Provides a standardized way of aggregating results of partitioned steps programmatically
+						Proporciona una forma estandarizada de agregar resultados programados de partitioned steps
 					</aside>
 				</section>
 
 				<section>
-					<h1>Spring Batch's<br/>Implementation</h1>
+					<h1>Implementation de<br/>Spring Batch</h1>
 				</section>
 
 				<section>
 					<h1>Spring Batch Status</h1>
 					<ul>
-						<li class="fragment">Released 3.0.0.M2 last night</li>
-						<li class="fragment">Passes &gt; 50% of the TCK tests</li>
-						<li class="fragment">3.0 will be JSR-352 compliant</li>
+						<li class="fragment">Released 4.1.1.RELEASE last night</li>
+						<li class="fragment">+ 50% de las pruebas TCK pasadas</li>
+						<li class="fragment">&gt; 3.0 son JSR-352 compliant</li>
 					</ul>
 				</section>
 
 				<section>
 					<h1>"Raw" JSR-352 version</h1>
 					<ul>
-						<li class="fragment">Classes: 8</li>
-						<li class="fragment">Lines of custom code: 826</li>
+						<li class="fragment">Clases: 8</li>
+						<li class="fragment">Lineas de código personalizadas: 826</li>
 					</ul>
 					<aside class="notes">
-						None of the above numbers include unit tests
+						Ninguno de los núemeros de arriba incluyen pruebas unitarias
 					</aside>
 				</section>
 
 				<section>
 					<h1>3</h1>
 					<ul>
-						<li class="fragment">API for building batch components</li>
-						<li class="fragment">A DSL for configuring batch components</li>
-						<li class="fragment">A contract of how batch components interact</li>
+						<li class="fragment">API para construir componentes batch</li>
+						<li class="fragment">DSL para configurar componentes batch</li>
+						<li class="fragment">Un contrato de cómo interactúan los componentes batch</li>
 					</ul>
 				</section>
 
@@ -653,11 +657,11 @@ jobOperator.stop(jobExecutionid);
 				</section>
 
 				<section>
-					<h1>Components!!!</h1>
+					<h1>Componentes!!!</h1>
 				</section>
 
 				<section>
-					<h1>JSR-352 provides 0<br/>implementations</h1>
+					<h1>JSR-352 provee 0<br/>implementaciones</h1>
 				</section>
 
 				<section id="components">
@@ -701,43 +705,43 @@ jobOperator.stop(jobExecutionid);
 						<li>StaxEventItemWriter</li>
 					</ul>
 					<aside class="notes">
-						17 concrete ItemReader implementations and 16 concrete ItemWriter implementations
+						17 implementaciones concretas de ItemReader y 16 implementaciones concretas de ItemWriter
 					</aside>
 				</section>
 
 				<section>
-					<h1>Same app...Spring-ified</h1>
+					<h1>Misma aplicación...<br/>Spring-fiada</h1>
 				</section>
 
 				<section>
-					<h1>Comparison</h1>
+					<h1>Comparación</h1>
 				</section>
 
 				<section>
 					<h1>"Raw" JSR-352 version</h1>
 					<ul>
-						<li class="fragment">Classes: 8</li>
-						<li class="fragment">Lines of custom code: 826</li>
+						<li class="fragment">Clases: 8</li>
+						<li class="fragment">Lineas de código personalizadas: 826</li>
 					</ul>
 					<aside class="notes">
-						None of the above numbers include unit tests
+						Ninguno de los núemeros de arriba incluyen pruebas unitarias
 					</aside>
 				</section>
 
 				<section>
 					<h1>Spring JSR-352 version</h1>
 					<ul>
-						<li class="fragment">Classes: 5</li>
-						<li class="fragment">Lines of custom code: 596</li>
+						<li class="fragment">Clases: 5</li>
+						<li class="fragment">Lineas de código personalizadas: 596</li>
 					</ul>
 					<aside class="notes">
-						None of the above numbers include unit tests
-						Over 300 lines of mapping code
+						Ninguno de los núemeros de arriba incluyen pruebas unitarias
+						Más de 300 líneas de código de mapeo.
 					</aside>
 				</section>
 
 				<section>
-					<h1>Beyond JSR-352</h1>
+					<h1>Más allá de JSR-352</h1>
 				</section>
 
 				<section>
@@ -745,23 +749,23 @@ jobOperator.stop(jobExecutionid);
 				</section>
 
 				<section>
-					<h1>Type safe properties</h1>
+					<h1>Propiedades Type safe</h1>
 				</section>
 
 				<section>
-					<h1>No Inheritence</h1>
+					<h1>Sin herencia</h1>
 				</section>
 
 				<section>
-					<h1>Scalability</h1>
+					<h1>Escalabilidad</h1>
 				</section>
 
 				<section>
-					<h1>JSR-352 is single JVM only</h1>
+					<h1>JSR-352 es solo single JVM</h1>
 				</section>
 
 				<section>
-					<h1>Spring Batch scales beyond 1 JVM</h1>
+					<h1>Spring Batch escala más allá de 1 JVM</h1>
 				</section>
 
 				<section>
@@ -775,11 +779,11 @@ jobOperator.stop(jobExecutionid);
 				</section>
 
 				<section>
-					<h1>Batch doesn't occur<br/>in a vacuum</h1>
+					<h1>Batch no ocurre<br/>en el vacio</h1>
 				</section>
 
 				<section>
-					<h1>Launching jobs via messages</h1>
+					<h1>Jobs lanzados via mensajes</h1>
 				</section>
 
 				<section>
@@ -787,7 +791,7 @@ jobOperator.stop(jobExecutionid);
 				</section>
 
 				<section>
-					<h1>Spring XD</h1>
+					<h1>Spring XD / SCDF</h1>
 				</section>
 
 				<section>
@@ -795,18 +799,17 @@ jobOperator.stop(jobExecutionid);
 				</section>
 
 				<section>
-					<h1>Find this deck and demo code:</h1>
-					<p><a href="https://github.com/mminella/jsr352-springbatch-and-you.git">Github</a><br/>
-						<img src="./img/repository.png"/></p>
+					<h1>Encuentra esta presentación y código demo en:</h1>
+					<p><a href="https://github.com/publinchi/jsr352-springbatch-and-you.git">Github</a><br/>
+						<img src="./img/frame.png"/></p>
 				</section>
 
 				<section>
-					<h1>Keep in touch!</h1>
+					<h1>Contacto!</h1>
 					<ul>
-						<li>Michael Minella
+						<li>Publio Estupiñán
 							<ul>
-								<li>Twitter: <a href="https://twitter.com/michaelminella">@MichaelMinella</a></li>
-								<li>Github: <a href="https://github.com/mminella">mminella</a></li>
+								<li>Github: <a href="https://github.com/publinchi">publinchi</a></li>
 							</ul>
 						</li>
 						<li>Spring Batch
